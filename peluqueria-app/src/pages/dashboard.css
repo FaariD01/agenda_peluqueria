@@ -1,0 +1,28 @@
+.react-calendar {
+    background-color: #0e1116 !important; /* Fondo oscuro */
+    color: #fff !important; /* Texto blanco */
+    border-radius: 10px !important; /* Bordes redondeados */
+  }
+  
+  .react-calendar__tile {
+    color: #d1d5db; /* Gris claro para los días */
+  }
+  
+  .react-calendar__tile--active {
+    background-color: #4f46e5 !important; /* Azul para días activos */
+    color: #fff !important;
+  }
+  
+  .react-calendar__tile--now {
+    background-color: #2563eb !important; /* Azul para hoy */
+    color: #fff !important;
+  }
+  
+  .react-calendar__tile--disabled {
+    opacity: 0.5 !important; /* Días deshabilitados */
+  }
+  
+  .react-calendar__month-view__days__day--weekend {
+    opacity: 0.5 !important; /* Deshabilitar domingos y lunes */
+  }
+  
