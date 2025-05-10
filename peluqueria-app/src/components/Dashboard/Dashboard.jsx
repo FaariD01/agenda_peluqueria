@@ -48,46 +48,6 @@ export default function PanelPrincipal() {
   return (
     
   <div className="bodyDashboard">
-  {/* Encabezado con logo y título */}
-    <div className="divLogo">
-      <img
-        src="/public/logo.png"
-        alt="Logo"
-        className="logo"
-      />
-      
-    </div>
-    <div className="navBar">
-      <div className="buttonTurnos">
-          <Link to="/">
-            <button className="btnTurnos">
-              Inicio
-            </button>
-          </Link>
-      </div>
-      <div className="buttonTurnos">
-          <Link to="/turnos">
-            <button className="btnTurnos">
-              Ver y Agendar Turnos
-            </button>
-          </Link>
-      </div>
-        <div className="buttonTurnos">
-          <Link to="/">
-            <button className="btnTurnos">
-              Conocenos
-            </button>
-          </Link>
-      </div>
-    </div>
-
-        
-  {/* Panel de gestión */}
-  <div className="bg-gray-800 rounded-lg shadow-xl p-8 w-full max-w-4xl text-center">
-    
-
-    
-
     {/* Calendario */}
     <div className="calendario">
       <Calendar
@@ -116,48 +76,40 @@ export default function PanelPrincipal() {
       />
     </div>
 
-   
-
     {/* Lista de turnos */}
   <div className="divListadoTurnos">
-  <h2 className="">
-    Turnos para {date.toLocaleDateString()}
-  </h2>
+    <h2 className="">
+      Turnos para {date.toLocaleDateString()}
+    </h2>
 
-  {Object.entries(getTurnosAgrupadosYOrdenados(date)).map(([empleado, turnosEmpleado]) => (
-    <div key={empleado} className="mb-6">
-      <h3 className="nombreEmpleado">✂️ {empleado}</h3>
-      <ul className="listadoTurnos">
-        {turnosEmpleado.map((turno, index) => (
-          <li
-            key={index}
-            className="bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 hover:shadow-xl transition-all duration-300"
-          >
-            <p className="text-white mb-2">
-              <span className="font-semibold">🧍 Cliente:</span> {turno.cliente}
-            </p>
-            <p className="text-white mb-2">
-              <span className="font-semibold">🕒 Hora:</span> {turno.hora}
-            </p>
-            <p className="text-white">
-              <span className="font-semibold">💈 Servicio:</span> {turno.servicio}
-            </p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  ))}
+    {Object.entries(getTurnosAgrupadosYOrdenados(date)).map(([empleado, turnosEmpleado]) => (
+      <div key={empleado} className="mb-6">
+        <h3 className="nombreEmpleado">✂️ {empleado}</h3>
+        <ul className="listadoTurnos">
+          {turnosEmpleado.map((turno, index) => (
+            <li
+              key={index}
+              className="bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 hover:shadow-xl transition-all duration-300"
+            >
+              <p className="text-white mb-2">
+                <span className="font-semibold">🧍 Cliente:</span> {turno.cliente}
+              </p>
+              <p className="text-white mb-2">
+                <span className="font-semibold">🕒 Hora:</span> {turno.hora}
+              </p>
+              <p className="text-white">
+                <span className="font-semibold">💈 Servicio:</span> {turno.servicio}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
 
-  {getTurnosPorFecha(date).length === 0 && (
-    <p className="text-gray-400">No hay turnos agendados para este día.</p>
-  )}
-</div>
+    {getTurnosPorFecha(date).length === 0 && (
+      <p className="text-gray-400">No hay turnos agendados para este día.</p>
+    )}
   </div>
-  <footer>
-    <div className="footer">
-          <h3>© 2025 ChemTech</h3>
-      </div> 
-  </footer>
 </div>
 
 )};

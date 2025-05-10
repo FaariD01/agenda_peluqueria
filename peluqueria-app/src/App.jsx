@@ -1,22 +1,24 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Dashboard from './pages/Dashboard'
-import Appointments from './pages/Appointments'
-import Payments from './pages/Payments'
-
+import Dashboard from './components/Dashboard/Dashboard'
+import Appointments from './components/Turnos/Appointments'
+import Payments from './components/Payments/Payments'
+import Footer from './components/Footer/Footer'
+import Navbar from './components/Navbar/Navbar'
 import "./App.css"
 
 export default function App() {
   return (
 
     <div>
-    
-    <Routes>
-      
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/turnos" element={<Appointments />} />
-      <Route path="/pagos" element={<Payments />} />
-      
-    </Routes>
+      <Navbar/>
+      <Routes>
+        
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/turnos" element={<Appointments />} />
+        <Route path="/pagos" element={<Payments />} />
+        
+      </Routes>
+      <Footer/>
     </div>
   )
 }
