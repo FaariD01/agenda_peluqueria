@@ -20,42 +20,54 @@ export default function Appointments() {
   }, [turnos]);
 
   const agregarTurno = (turno) => {
-    const duplicado = turnos.some(
-      (t, i) =>
-        i !== editIndex &&
+    const nuevaFechaHora = new Date(`${turno.fecha}T${turno.hora}`);
+  
+    const bloqueado = turnos.some((t, i) => {
+      if (i === editIndex) return false;
+  
+      if (t.empleado !== turno.empleado) return false;
+  
+      const tFechaHora = new Date(`${t.fecha}T${t.hora}`);
+  
+      // Duración bloqueada en minutos
+      const bloqueadoPor = t.servicio === "Coloración" ? 120 : 0;
+  
+      if (bloqueadoPor > 0) {
+        const diferencia = Math.abs(nuevaFechaHora - tFechaHora) / (1000 * 60);
+        if (diferencia < bloqueadoPor) return true;
+      }
+  
+      // Si el nuevo turno es "Coloración", también bloquear turnos existentes en las 2h posteriores
+      if (turno.servicio === "Coloración") {
+        const diferencia = (tFechaHora - nuevaFechaHora) / (1000 * 60);
+        if (diferencia >= 0 && diferencia < 120) return true;
+      }
+  
+      // Mismo día/hora/empleado = duplicado directo
+      return (
         t.fecha === turno.fecha &&
         t.hora === turno.hora &&
         t.empleado === turno.empleado
-    );
-
-    if (duplicado) {
-      alert("Ya existe un turno para esa fecha, hora y empleado.");
+      );
+    });
+  
+    if (bloqueado) {
+      alert("Este peluquero ya tiene un turno reservado en ese rango horario para este tipo de servicio.");
       return;
     }
-
-    const otroEmpleadoEnMismoHorario = turnos.some(
-      (t) =>
-        t.fecha === turno.fecha &&
-        t.hora === turno.hora &&
-        t.empleado !== turno.empleado
-    );
-
-    if (otroEmpleadoEnMismoHorario || !duplicado) {
-      const turnoConEstado = {
-        ...turno,
-        estado: "pendiente",
-      };
-
-      if (editIndex !== null) {
-        const nuevos = [...turnos];
-        nuevos[editIndex] = turnoConEstado;
-        setTurnos(nuevos);
-        setEditIndex(null);
-      } else {
-        setTurnos((prev) => [...prev, turnoConEstado]);
-      }
+  
+    const turnoConEstado = {
+      ...turno,
+      estado: "pendiente",
+    };
+  
+    if (editIndex !== null) {
+      const nuevos = [...turnos];
+      nuevos[editIndex] = turnoConEstado;
+      setTurnos(nuevos);
+      setEditIndex(null);
     } else {
-      alert("No se puede agendar el turno en el mismo horario y con el mismo peluquero.");
+      setTurnos((prev) => [...prev, turnoConEstado]);
     }
   };
 
@@ -76,8 +88,41 @@ export default function Appointments() {
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto bg-white rounded-lg shadow-xl">
-      <h1 className="text-2xl font-bold text-gray-700 mb-6">Gestión de turnos</h1>
+
+      <div className="bodyDashboard">
+  {/* Encabezado con logo y título */}
+    <div className="divLogo">
+      <img
+        src="/public/logo.png"
+        alt="Logo"
+        className="logo"
+      />
+      
+    </div>
+    <div className="navBar">
+      <div className="buttonTurnos">
+          <Link to="/">
+            <button className="btnTurnos">
+              Inicio
+            </button>
+          </Link>
+      </div>
+      <div className="buttonTurnos">
+          <Link to="/turnos">
+            <button className="btnTurnos">
+              Ver y Agendar Turnos
+            </button>
+          </Link>
+      </div>
+        <div className="buttonTurnos">
+          <Link to="/">
+            <button className="btnTurnos">
+              Conocenos
+            </button>
+          </Link>
+      </div>
+    </div>
+      
       
       <AppointmentForm
         onAdd={agregarTurno}
@@ -125,11 +170,13 @@ export default function Appointments() {
           </li>
         ))}
       </ul>
-      <Link to="/">
-          <button className="w-full md:w-auto bg-gray-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-300 mt-6">
-            Volver al Panel Principal
+      <div className="buttonTurnos">
+        <Link to="/">
+          <button className="btnTurnos">
+            Volver al panel principal
           </button>
         </Link>
+    </div>
       
     </div>
   );

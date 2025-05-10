@@ -78,15 +78,21 @@ export default function AppointmentForm({ onAdd, initialData, empleados }) {
         required
         className="w-full border p-2 rounded"
       />
-      <input
-        type="text"
+      <select
         name="servicio"
-        placeholder="Servicio"
         value={formData.servicio}
         onChange={handleChange}
         required
-        className="w-full border p-2 rounded"
-      />
+        className="border p-2 rounded w-full"
+      >
+        <option value="">Seleccionar servicio</option>
+        <option value="Corte de pelo">Corte de pelo</option>
+        <option value="Coloración">Coloración</option>
+        <option value="Peinado">Peinado</option>
+        <option value="Barba">Barba</option>
+        {/* Agregá más opciones según tu necesidad */}
+      </select>
+
       <select
         name="empleado"
         value={formData.empleado}

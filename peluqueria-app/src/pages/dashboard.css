@@ -1,28 +1,227 @@
+.bodyDashboard{
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.divLogo{
+  display: flex;
+  justify-content: center;
+}
+
+.divLogo .logo{
+  height: 30vh;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+/* Fondo general del calendario */
 .react-calendar {
-    background-color: #0e1116 !important; /* Fondo oscuro */
-    color: #fff !important; /* Texto blanco */
-    border-radius: 10px !important; /* Bordes redondeados */
-  }
+  background-color: #1f2937;
+  color: #f9fafb;
+  border-radius: 1rem;
+  border: none;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  font-size: 2vh;
+
+}
+
+/* Navegación superior (mes y flechas) */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
   
-  .react-calendar__tile {
-    color: #d1d5db; /* Gris claro para los días */
-  }
+}
+
+.react-calendar__navigation button {
+  background: transparent;
+  color: #f9fafb;
+  font-size: 1rem;
+  border: none;
+  padding: 0.5rem;
+  transition: background-color 0.2s;
+  border-radius: 0.5rem;
   
-  .react-calendar__tile--active {
-    background-color: #4f46e5 !important; /* Azul para días activos */
-    color: #fff !important;
-  }
+}
+
+.react-calendar__navigation button:hover {
+  background-color: #374151;
+}
+
+/* Días de la semana */
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
   
-  .react-calendar__tile--now {
-    background-color: #2563eb !important; /* Azul para hoy */
-    color: #fff !important;
+}
+
+/* Celdas de los días */
+.react-calendar__tile {
+  background: transparent;
+  color: #d1d5db;
+  padding: 1rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.react-calendar__tile:hover {
+  background-color: #374151;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Días con turnos */
+.react-calendar__tile.turno {
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+}
+
+/* Días deshabilitados (domingos y lunes) */
+.react-calendar__tile:disabled {
+  color: #6b7280;
+  background-color: #1f2937;
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Día actual */
+.react-calendar__tile--now {
+  background-color: #4b5563;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.calendario{
+  display: flex;
+  justify-content: center;
+  padding: 3vh;
+
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.buttonTurnos{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5vh;
+}
+.btnTurnos  {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  height: 6vh;
+  width: 30vh;
+}
+
+
+.buttonTurnos button:hover {
+  border-color: #646cff;
+}
+.buttonTurnos button:focus,
+.buttonTurnos button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
   }
-  
-  .react-calendar__tile--disabled {
-    opacity: 0.5 !important; /* Días deshabilitados */
+  a:hover {
+    color: #747bff;
   }
-  
-  .react-calendar__month-view__days__day--weekend {
-    opacity: 0.5 !important; /* Deshabilitar domingos y lunes */
+  button {
+    background-color: #f9f9f9;
   }
+}
+
+.titleDashboard{
+  text-align: center;
+}
+
+.divListadoTurnos{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
   
+  
+}
+
+.divListadoTurnos ul{
+  list-style: none;
+  
+}
+
+.listadoTurnos{
+  display: flex;
+  justify-content: space-around;
+  width: 150vh;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #1a1a1a;
+}
+
+.nombreEmpleado{
+  background-color: #3a3737;
+}
+
+.navBar{
+  display: flex;
+  justify-content: center;
+}
