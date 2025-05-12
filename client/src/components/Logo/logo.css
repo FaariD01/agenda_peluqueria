@@ -1,0 +1,11 @@
+.divLogo{
+  display: flex;
+  justify-content: center;
+  padding-top: 4vh;
+}
+
+.divLogo .logo{
+  width: 100%;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
+  
+}

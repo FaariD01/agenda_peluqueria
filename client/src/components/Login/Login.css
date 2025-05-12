@@ -1,0 +1,12 @@
+.bodyLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bodyLogin Form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

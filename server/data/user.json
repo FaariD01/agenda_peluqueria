@@ -1,0 +1,32 @@
+[
+  {
+    "email": "Farid@gmail.com",
+    "password": "$2b$10$HnVMqh6ALlEssbBUzBJQV.vzI/6ivjs0JAf.b8cG2WWXNTKEViPXC",
+    "name": "Farid",
+    "role": "user"
+  },
+  {
+    "email": "moohannafarid@gmail.com",
+    "password": "$2b$10$ih.iJVeAV04/De.o.7ai5.CXmh.w6ZyFZQ0DmqU6KjbtH6Q5Gs0cC",
+    "name": "Farid",
+    "role": "user"
+  },
+  {
+    "email": "Admin@bravos.com",
+    "password": "$2b$10$lGaD3nqd46EhDSRCQqrPaONEa//TWEEXuyTpXEHD2WcXoOOcVx1ti",
+    "name": "admin",
+    "role": "admin"
+  },
+  {
+    "email": "Agustin@gmail.com",
+    "password": "$2b$10$F3fYQUki/w6dWa.5x5PfGu89Kl0vzG5SPWd6.KcrecpPVQ/1NQHK6",
+    "name": "Agustin",
+    "role": "user"
+  },
+  {
+    "email": "Valentina@gmail.com",
+    "password": "$2b$10$sY0bE8dtNc3AeeMxlixv8.mL/JvKnPIaedq8fC1VMeEaxi9t2TkdK",
+    "name": "Valentina",
+    "role": "user"
+  }
+]

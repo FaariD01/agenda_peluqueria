@@ -1,0 +1,159 @@
+.bodyDashboard{
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* Fondo general del calendario */
+.react-calendar {
+  background-color: #1f2937;
+  color: #f9fafb;
+  border-radius: 1rem;
+  border: none;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  font-size: 2vh;
+
+}
+
+/* Navegación superior (mes y flechas) */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  
+}
+
+.react-calendar__navigation button {
+  background: transparent;
+  color: #f9fafb;
+  font-size: 1rem;
+  border: none;
+  padding: 0.5rem;
+  transition: background-color 0.2s;
+  border-radius: 0.5rem;
+  
+}
+
+.react-calendar__navigation button:hover {
+  background-color: #374151;
+}
+
+/* Días de la semana */
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+  
+}
+
+/* Celdas de los días */
+.react-calendar__tile {
+  background: transparent;
+  color: #d1d5db;
+  padding: 1rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.react-calendar__tile:hover {
+  background-color: #374151;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Días con turnos */
+.react-calendar__tile.turno {
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+}
+
+/* Días deshabilitados (domingos y lunes) */
+.react-calendar__tile:disabled {
+  color: #6b7280;
+  background-color: #1f2937;
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Día actual */
+.react-calendar__tile--now {
+  background-color: #4b5563;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.calendario{
+  display: flex;
+  justify-content: center;
+  padding: 10vh 0 5vh 0;
+
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.divListadoTurnos{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  
+  
+}
+
+.divListadoTurnos ul{
+  list-style: none;
+  
+}
+
+.listadoTurnos{
+  display: flex;
+  justify-content: space-around;
+  width: 150vh;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nombreEmpleado{
+  background-color: #3a3737;
+}
+
